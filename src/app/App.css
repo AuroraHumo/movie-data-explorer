@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk:SHLN@84.3&family=Sixtyfour+Convergence&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+.font-zen-dots {
+  font-family: 'Zen Dots', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 0,
+    "SHLN" 0;
+}
+.font-zen-dots-bold {
+  font-family: 'Zen Dots', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 0,
+    "SHLN" 0;
+}
+
+.font-honk {
+  font-family: 'Honk', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 84.3;
+}
+
+.sixtyfour-convergence-font {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+}
+
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-oranje {
+    background-color: #e0633c;
+  }
+  .bg-cream {
+    background-color: #eedecb;
+  }
+  .bg-black {
+    background-color: #202020;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
