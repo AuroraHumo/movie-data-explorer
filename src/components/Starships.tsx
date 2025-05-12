@@ -1,27 +1,18 @@
-import ApiRequests from "../data/ApiRequests";
+
 import { API_URL } from "../data/apiConfig";
 import { useState, useEffect } from "react";
-
-interface Starship {
-    name: string;
-    model: string;
-    manufacturer: string;
-    cost_in_credits: string;
-    length: string;
-    crew: string;
-    passengers: string;
-    cargo_capacity: string;
-    consumables: string;
-}
+import Modal from "./ModalStarships";
+import type { Starship } from "../interfaces/Starship";
 
 const Starships = () => {
     const [data, setData] = useState<Starship[]>([]);
+    const [openModal, setOpenModal] = useState(false);
+    const [info, setInfo] = useState<Starship | null>(null);
 
     const fetchData = async () => {
         const answer = await fetch(API_URL.STARWARS_SHIPS);
         const json = await answer.json();
         setData(json.results);
-        console.log(json.results)
     }
             
     useEffect(() => {
@@ -32,12 +23,19 @@ const Starships = () => {
     return (
         <>
             <h1 className="text-2xl">Starships</h1>
+
             {data.map((item: Starship, index: number) => (
-                <div key={index} className="border-2 border-gray-300 p-4 m-2">
-                    <h1> {item.name.toUpperCase()}</h1>
-                    <p> {item.model}</p>
+                <div key={index} className=" m-2 flex hover:bg-gray-300 transition p-4 border-2 border-gray-300 cursor-pointer"
+                onClick={() => { setOpenModal(true); setInfo(item); }}>
+                    <div className="flex-1">
+                        <h1 className=" text-l"> {item.name.toUpperCase()}</h1>
+                        <p className=""> {item.model}</p>
+                    </div>
+
                 </div>
             ))}
+
+            {info && <Modal open={openModal} onClose={() => setOpenModal(false)} info={info}></Modal>}
         </>
     )
 }
