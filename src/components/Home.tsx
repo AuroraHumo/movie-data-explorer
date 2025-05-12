@@ -12,7 +12,7 @@ const Home = () => {
                 <div className="flex-1 flex flex-col justify-center text-3xl sm:text-5xl font-zen-dots-bold">
                     <h2>STAR WARS</h2>
                     <h2>Data Explorer</h2>
-                    <h2>Welcome</h2>
+                    
                 </div>
                 <div className="flex-1 flex justify-center mt-10 sm:mt-30">
                     <Link to="/starships">

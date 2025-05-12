@@ -8,13 +8,13 @@ export default function Header() {
         <nav className="flex space-x-6">
           <Link
             to="/"
-            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold active:font-light "
+            className="text-gray-700 hover:text-amber-500 transition-colors font-bold active:font-light "
           >
             Home
           </Link>
           <Link
             to="/starships"
-            className="text-gray-700 hover:text-fuchsia-100 transition-colors font-bold"
+            className="text-gray-700 hover:text-amber-400 transition-colors font-bold"
           >
             Starships
           </Link>
