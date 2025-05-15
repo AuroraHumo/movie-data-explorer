@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Starship } from "../interfaces/Starship";
 import { API_URL } from "../data/apiConfig";
-import StarshipList from "./StarshipList";
-import Spinner from "./Spinner";
+import StarshipList from "../pages/StarshipList";
+import Spinner from "../components/Spinner";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -34,14 +34,8 @@ const StarshipFetcher = () => {
         fetchData();
     }, []);
 
-    if (isLoading) return <div className="flex justify-center items-center h-screen">
-                    <div className="flex flex-col items-center">
-                    <h2 className="text-2xl font-bold mb-4">Loading...</h2>
-                    <p className="text-gray-700 mb-4">Please wait while we fetch the starships.</p>
-
-                    <Spinner />
-                    </div>
-                </div>
+    if (isLoading) return  <Spinner />
+                    
     if (error) return <p>{error}</p>;
 
     return <StarshipList starships={starships} />;

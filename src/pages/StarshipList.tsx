@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Starship } from "../interfaces/Starship";
-import Modal from "./ModalStarships";
+import Modal from "../components/ModalStarships";
 
 interface Props {
     starships: Starship[];

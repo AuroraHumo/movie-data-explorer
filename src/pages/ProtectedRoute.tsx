@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import Spinner from "./Spinner";
+import Spinner from "../components/Spinner";
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 

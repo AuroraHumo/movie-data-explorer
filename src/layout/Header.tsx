@@ -10,7 +10,7 @@ export default function Header() {
             to="/"
             className="text-gray-700 hover:text-amber-500 transition-colors font-bold active:font-light "
           >
-            Home
+            Hoome
           </Link>
           <Link
             to="/starships"

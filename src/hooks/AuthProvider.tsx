@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import type { User } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const unsub = onAuthStateChanged(auth, (firebaseUser) => {
         setUser(firebaseUser);
         setIsLoading(false);
-        console.log("Usuari des del AuthProvider:", firebaseUser);
       });
   
       return () => unsub();
