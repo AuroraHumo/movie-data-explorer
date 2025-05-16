@@ -1,27 +1,36 @@
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const { user } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    signOut(auth);
+  };
+
   return (
-    <header className="p-4 sticky top-0 sm:top-0 text-left bg-white z-50">
-      <div className="sm:max-w-4xl mx-auto flex ">
-        
-        <nav className="flex space-x-6">
-          <Link
-            to="/"
-            className="text-gray-700 hover:text-amber-500 transition-colors font-bold active:font-light "
-          >
-            Hoome
-          </Link>
-          <Link
-            to="/starships"
-            className="text-gray-700 hover:text-amber-400 transition-colors font-bold"
-          >
-            Starships
-          </Link>
-          
-        </nav>
+    <nav className="p-4 bg-gray-100 flex justify-between">
+      <div>
+        <Link to="/" className="text-gray-700 hover:text-amber-500 font-bold">Home</Link> |  
+        <Link to="/starships" className="text-gray-700 hover:text-amber-500 font-bold"> Starships</Link> | 
+        <Link to="/movies" className="text-gray-700 hover:text-amber-500 font-bold"> Movies</Link>
       </div>
-    </header>
+      <div>
+        {user ? (
+          <>
+            <span className=" font-zen-dots text-amber-500">{user.email}  </span>
+            <button onClick={handleLogout} className="text-gray-700 hover:text-amber-500 font-bold"> | Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="text-gray-700 hover:text-amber-500 font-bold">Login</Link> | 
+            <Link to="/register" className="text-gray-700 hover:text-amber-500 font-bold">Register</Link>
+          </>
+        )}
+      </div>
+    </nav>
   );
 }
-
