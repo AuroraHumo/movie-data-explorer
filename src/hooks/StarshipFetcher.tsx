@@ -3,6 +3,8 @@ import type { StarshipInterface } from "../interfaces/StarshipInterface";
 import { API_URL } from "../data/apiConfig";
 import StarshipList from "../pages/StarshipList";
 import Spinner from "../components/Spinner";
+import ErrorPage from "../pages/Errorpage";
+
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -36,7 +38,7 @@ const StarshipFetcher = () => {
 
     if (isLoading) return  <Spinner />
                     
-    if (error) return <p>{error}</p>;
+    if (error) return <ErrorPage error={error}/>
 
     return <StarshipList starships={starships} />;
 };

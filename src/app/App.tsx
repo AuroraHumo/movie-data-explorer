@@ -29,7 +29,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logOrRegister" element={<LogOrRegister />} />
-          <Route path="*" element={<ErrorPage/>} />
+          <Route path="*" element={<ErrorPage error={null} />} />
         </Routes>
     </Layout>
   );

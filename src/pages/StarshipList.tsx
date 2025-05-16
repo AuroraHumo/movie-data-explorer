@@ -12,11 +12,13 @@ const StarshipList = ({ starships }: Props) => {
 
     return (
         <>
-            <h1 className="text-2xl">Starships</h1>
+            <h1 className="text-2xl mt-6 mb-6">Starships</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {starships.map((item, index) => (
                 <div
                     key={index}
-                    className="max-w-4/5 md:max-w-2/3 mx-auto m-6 p-4 bg-white border  cursor-pointer  hover:bg-amber-400 hover:text-black hover:font-semibold outline-4 outline-black transition hover:scale-105"
+                    className="relative bg-white border cursor-pointer hover:bg-amber-400 hover:text-black hover:font-semibold transition hover:scale-105 rounded-xl overflow-hidden shadow-md"
+
                     onClick={() => {
                         setOpenModal(true);
                         setInfo(item);
@@ -26,6 +28,7 @@ const StarshipList = ({ starships }: Props) => {
                     <p>{item.model}</p>
                 </div>
             ))}
+            </div>
 
             {info && (
                 <ModalStarships open={openModal} onClose={() => setOpenModal(false)} info={info} />
