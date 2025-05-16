@@ -11,7 +11,7 @@ import ProtectedRoute from '../pages/ProtectedRoute';
 import './App.css'
 import LogOrRegister from '../pages/LogOrRegister';
 import ErrorPage from '../pages/Errorpage';
-import { MovieFetcher } from '../hooks/MovieFetcher';
+
 
 export default function App() {
   return (

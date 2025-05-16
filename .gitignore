@@ -25,6 +25,3 @@ dist-ssr
 
 *storybook.log
 
-src\hooks\MovieFetcher.tsx
-
-../src/hooks/MovieFetcher.tsx
