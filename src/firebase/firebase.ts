@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_TMDB_API_KEY,
+  apiKey: "AIzaSyBW74CO3Hjj5GCMCRSTTWVq-UkDfoaq1s8",
   authDomain: "star-wars-data-watcher.firebaseapp.com",
   projectId: "star-wars-data-watcher",
   storageBucket: "star-wars-data-watcher.firebasestorage.app",

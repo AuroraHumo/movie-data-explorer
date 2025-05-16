@@ -1,14 +1,14 @@
 import { useState } from "react";
-import type { Starship } from "../interfaces/Starship";
-import Modal from "../components/ModalStarships";
+import type { StarshipInterface } from "../interfaces/StarshipInterface";
+import ModalStarships from "../components/ModalStarships";
 
 interface Props {
-    starships: Starship[];
+    starships: StarshipInterface[];
 }
 
 const StarshipList = ({ starships }: Props) => {
     const [openModal, setOpenModal] = useState(false);
-    const [info, setInfo] = useState<Starship | null>(null);
+    const [info, setInfo] = useState<StarshipInterface | null>(null);
 
     return (
         <>
@@ -28,7 +28,7 @@ const StarshipList = ({ starships }: Props) => {
             ))}
 
             {info && (
-                <Modal open={openModal} onClose={() => setOpenModal(false)} info={info} />
+                <ModalStarships open={openModal} onClose={() => setOpenModal(false)} info={info} />
             )}
         </>
     );

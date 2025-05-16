@@ -2,7 +2,7 @@ export default function Spinner() {
   return <div className="flex justify-center items-center h-screen">
     <div className="flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">Loading...</h2>
-      <p className="text-gray-700 mb-4">Please wait while we fetch the starships.</p>
+      <p className="text-gray-700 mb-4">Please wait a second while we fetch the data.</p>
       <div className="grid min-h-[140px] w-full place-items-center  rounded-lg p-6 ">
         <svg className="text-gray-300 animate-spin" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
           width="80" height="80">

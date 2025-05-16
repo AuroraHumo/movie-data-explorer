@@ -1,9 +1,9 @@
-import type { Starship } from "../interfaces/Starship";
+import type { StarshipInterface } from "../interfaces/StarshipInterface";
 
 interface ModalProps {
     open: boolean;
     onClose: () => void;
-    info: Starship;
+    info: StarshipInterface;
 }
 
 export default function ModalStarships({open, onClose, info}: ModalProps) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Starship } from "../interfaces/Starship";
+import type { StarshipInterface } from "../interfaces/StarshipInterface";
 import { API_URL } from "../data/apiConfig";
 import StarshipList from "../pages/StarshipList";
 import Spinner from "../components/Spinner";
@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const StarshipFetcher = () => {
-    const [starships, setStarships] = useState<Starship[]>([]);
+    const [starships, setStarships] = useState<StarshipInterface[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 

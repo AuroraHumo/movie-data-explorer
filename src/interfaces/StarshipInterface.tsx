@@ -1,4 +1,4 @@
-export interface Starship {
+export interface StarshipInterface {
     name: string;
     model: string;
     manufacturer: string;
