@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { InfiniteGetMovies } from './InfinitegetMovies'
+import { InfiniteGetMovies } from './InfiniteGetMovies'
 import MovieList from '../pages/MovieList';
 import Spinner from '../components/Spinner';
 import ErrorPage from '../pages/Errorpage';

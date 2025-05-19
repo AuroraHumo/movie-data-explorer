@@ -43,8 +43,8 @@ export const MovieFetcher = () => {
                     })
                 );
 
-                const delayPromise = delay(2000);
-                // Simulate a 2-second delay
+                const delayPromise = delay(1000);
+
                 await delayPromise;
                 setMovies(detailedMovies);
 
