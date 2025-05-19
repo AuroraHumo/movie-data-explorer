@@ -10,8 +10,8 @@ const Home = () => {
             </div>
             <div className="flex-1 justify-center items-stretch z-1 mt-2">
                 <div className="flex-1 flex flex-col justify-center text-3xl sm:text-5xl font-zen-dots-bold">
-                    <h2>STAR WARS</h2>
-                    <h2>Data Explorer</h2>
+                    <h2>THE IMDB</h2>
+                    <h2>Movie Explorer</h2>
                     
                 </div>
                 <div className="flex-1 flex justify-center mt-10 sm:mt-30">

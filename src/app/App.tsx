@@ -4,6 +4,7 @@ import Layout from '../layout/Layout';
 import Home from '../pages/Home'
 import StarshipFetcher from '../hooks/StarshipFetcher';
 import { MovieFetcher } from '../hooks/MovieFetcher';
+import  {InfiniteMoviesQuery}  from '../hooks/InfiniteMoviesQuery';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ProtectedRoute from '../pages/ProtectedRoute';
@@ -25,6 +26,10 @@ export default function App() {
           <Route path="/movies" element={
             <ProtectedRoute>
               <MovieFetcher />
+            </ProtectedRoute> } />
+          <Route path="/movies-full-list" element={
+            <ProtectedRoute>
+              <InfiniteMoviesQuery />
             </ProtectedRoute> } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

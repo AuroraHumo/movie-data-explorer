@@ -1,5 +1,5 @@
 export default function Spinner() {
-  return <div className="flex justify-center items-center h-screen">
+  return <div className="flex justify-center items-center mt-10">
     <div className="flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">Loading...</h2>
       <p className="text-gray-700 mb-4">Please wait a second while we fetch the data.</p>

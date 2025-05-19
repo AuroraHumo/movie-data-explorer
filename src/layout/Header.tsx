@@ -16,7 +16,9 @@ export default function Header() {
       <div>
         <Link to="/" className="text-gray-700 hover:text-amber-500 font-bold">Home</Link> |  
         <Link to="/starships" className="text-gray-700 hover:text-amber-500 font-bold"> Starships</Link> | 
-        <Link to="/movies" className="text-gray-700 hover:text-amber-500 font-bold"> Movies</Link>
+        <Link to="/movies" className="text-gray-700 hover:text-amber-500 font-bold"> TOP 20 MOVIES</Link> | 
+        <Link to="/movies-full-list" className="text-gray-700 hover:text-amber-500 font-bold"> FULL LIST</Link>
+
       </div>
       <div>
         {user ? (
