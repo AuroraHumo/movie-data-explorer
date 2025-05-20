@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import Home from '../pages/Home'
 import { MovieFetcher } from '../hooks/MovieFetcher';
-import  {InfiniteMoviesQuery}  from '../hooks/InfiniteMoviesQuery';
+import  {InfiniteMoviesQuery}  from '../pages/InfiniteMoviesQuery';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ProtectedRoute from '../pages/ProtectedRoute';
@@ -18,10 +18,7 @@ export default function App() {
     <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={
-            <ProtectedRoute>
-              <MovieFetcher />
-            </ProtectedRoute> } />
+          <Route path="/movies" element={ <MovieFetcher /> } />
           <Route path="/movies-full-list" element={
             <ProtectedRoute>
               <InfiniteMoviesQuery />

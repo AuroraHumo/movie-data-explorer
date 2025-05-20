@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { MovieInterface } from "../interfaces/MovieInterface";
 import ModalMovie from "../components/ModalMovie";
+import LogOrRegister from "./LogOrRegister";
 
 interface Props {
     movies: MovieInterface[];
@@ -56,6 +57,7 @@ const MovieList = ({ movies }: Props) => {
                     </div>
                 ))}
             </div>
+            <LogOrRegister />
 
             {info && (
                 <ModalMovie

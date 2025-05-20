@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { InfiniteGetMovies } from './InfiniteGetMovies'
-import MovieList from '../pages/MovieList';
+import { InfiniteGetMovies } from '../hooks/InfiniteGetMovies'
+import MovieList from './MovieList';
 import Spinner from '../components/Spinner';
-import ErrorPage from '../pages/Errorpage';
+import ErrorPage from './ErrorPage';
 import { useEffect, useRef } from 'react';
 
 export const InfiniteMoviesQuery = () => {
