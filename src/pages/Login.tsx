@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/starships ");
+      navigate("/movies");
     } catch {
       setError("Email o contrasenya incorrectes");
     }

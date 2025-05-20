@@ -2,9 +2,9 @@ import Header from "./Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div  className="min-h-screen flex flex-col">
       <Header />
-      <main className="p-6 text-center items-center">{children}</main>
+      <main className="flex-grow px-6 py-10">{children}</main>
     </div>
   );
 }

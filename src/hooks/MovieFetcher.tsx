@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import type { MovieInterface } from "../interfaces/MovieInterface";
 import MovieList from "../pages/MovieList";
-import ErrorPage from "../pages/Errorpage";
+import ErrorPage from "../pages/ErrorPage";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

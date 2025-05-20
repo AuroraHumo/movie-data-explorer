@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from '../layout/Layout';
 import Home from '../pages/Home'
-import StarshipFetcher from '../hooks/StarshipFetcher';
 import { MovieFetcher } from '../hooks/MovieFetcher';
 import  {InfiniteMoviesQuery}  from '../hooks/InfiniteMoviesQuery';
 import Login from '../pages/Login';
@@ -11,7 +10,7 @@ import ProtectedRoute from '../pages/ProtectedRoute';
 
 import './App.css'
 import LogOrRegister from '../pages/LogOrRegister';
-import ErrorPage from '../pages/Errorpage';
+import ErrorPage from '../pages/ErrorPage';
 
 
 export default function App() {
@@ -19,10 +18,6 @@ export default function App() {
     <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/starships" element={
-            <ProtectedRoute>
-              <StarshipFetcher />
-            </ProtectedRoute> } />
           <Route path="/movies" element={
             <ProtectedRoute>
               <MovieFetcher />

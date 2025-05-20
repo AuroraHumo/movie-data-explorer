@@ -2,28 +2,28 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 const Home = () => {
+  return (
+    <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-10 min-h-[calc(100vh-100px)]">
 
-    return (
-        <div className="flex flex-col sm:flex-row justify-center items-stretch h-screen overflow-hidden">
-            <div className="flex-1 flex items-center justify-baseline z-0">
-                <img className=" max-w-full " src="src\assets\star-wars.webp" alt="Intro" />
-            </div>
-            <div className="flex-1 justify-center items-stretch z-1 mt-2">
-                <div className="flex-1 flex flex-col justify-center text-3xl sm:text-5xl font-zen-dots-bold">
-                    <h2>THE IMDB</h2>
-                    <h2>Movie Explorer</h2>
-                    
-                </div>
-                <div className="flex-1 flex justify-center mt-10 sm:mt-30">
-                    <Link to="/starships">
-                        <Button type="button">Discover the starships!</Button>
-                    </Link>
-                </div>
-            </div>
+      <div className="sm:w-1/2 flex justify-center">
+        <img
+          src="src/assets/gatis.jpg"
+          alt="Intro"
+          className="w-full max-w-md rounded-lg shadow-lg"
+        />
+      </div>
+
+      <div className="sm:w-1/2 text-center space-y-6">
+        <div className="text-7xl sm:text-9xl font-bold mb-6 font-zen-dots-bold">
+          <h1>IMDB</h1>
+          <h2 className="text-3xl sm:text-5xl">Movie Database</h2>
         </div>
-
-    );
-
-}
+        <Link to="/movies">
+          <Button type="button">Discover trending movies</Button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default Home;
