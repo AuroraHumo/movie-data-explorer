@@ -7,8 +7,8 @@ const Home = () => {
 
       <div className="sm:w-1/2 flex justify-center">
         <img
-          src="src/assets/gatis.jpg"
-          alt="Intro"
+          src="src\assets\gatis.jpg"
+          alt="Cute cats"
           className="w-full max-w-md rounded-lg shadow-lg"
         />
       </div>

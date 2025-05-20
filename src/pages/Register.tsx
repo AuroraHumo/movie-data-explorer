@@ -14,7 +14,7 @@ export default function Register() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/movies"); 
+      navigate("/movies-full-list"); 
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

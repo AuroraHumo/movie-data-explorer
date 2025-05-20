@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/movies");
+      navigate("/movies-full-list");
     } catch {
       setError("Email o contrasenya incorrectes");
     }
