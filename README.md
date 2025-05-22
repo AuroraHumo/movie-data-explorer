@@ -1,5 +1,7 @@
 # 🎬 MOVIE EXPLORER APP
 
+![Vitest](https://github.com/AuroraHumo/movie-data-explorer/actions/workflows/vitest.yml/badge.svg)
+
 ## 📖 Description
 
 **Movie Explorer** is a dynamic React web application that allows users to explore upcoming movies from TheMovieDB API, view detailed movie information, and access cast information through modals.
@@ -7,9 +9,9 @@ It features **infinite scroll**, user **authentication with Firebase**, and comp
 
 The app is built with **Vite + TypeScript**, **Tailwind CSS**, and makes use of **React Query** for data fetching and caching.
 
-## 🌐 Live Preview (Soon)
+## 🌐 Live Preview
 
-> Will be deployed on [Vercel](https://vercel.com) 🚀
+> 👉 [movie-data-explorer.vercel.app](https://movie-data-explorer.vercel.app)
 
 ## 🛠 Tech Stack
 
@@ -103,7 +105,7 @@ Or launch the interactive test UI:
 npx vitest --ui
 ```
 
-Unit tests use **Vitest** and **React Testing Library** with mocks for real-world scenarios.
+Tests are written using **Vitest** and **React Testing Library**. They are automatically executed via GitHub Actions whenever code is pushed to the main branch.
 
 ---
 
@@ -116,7 +118,6 @@ expect(await screen.findByText((_, el) => el?.textContent?.includes("Cobb"))).to
 ```
 
 ---
-
 
 ## 🤝 Contributing
 
