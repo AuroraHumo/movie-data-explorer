@@ -3,10 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import Home from '../pages/Home'
 import { MovieFetcher } from '../hooks/MovieFetcher';
-import  {InfiniteMoviesQuery}  from '../pages/InfiniteMoviesQuery';
+import {InfiniteMoviesQuery}  from '../pages/InfiniteMoviesQuery';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ProtectedRoute from '../pages/ProtectedRoute';
+/* import Favorites from '../services/favoritesService'; */
 
 import './App.css'
 import LogOrRegister from '../pages/LogOrRegister';
@@ -23,6 +24,10 @@ export default function App() {
             <ProtectedRoute>
               <InfiniteMoviesQuery />
             </ProtectedRoute> } />
+{/*           <Route path="/favorites" element={
+            <ProtectedRoute>
+              <Favorites />
+            </ProtectedRoute> } /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logOrRegister" element={<LogOrRegister />} />

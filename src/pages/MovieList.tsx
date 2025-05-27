@@ -51,6 +51,9 @@ const MovieList = ({ movies }: Props) => {
                                 >
                                     See Cast
                                 </button>
+                                <button>
+                                    Holi
+                                </button>
                             </div>
                         )}
                     </div>
