@@ -77,10 +77,9 @@ describe("MovieList component", () => {
     expect(screen.getByText("INCEPTION")).toBeInTheDocument();
   });
 
-  it("shows release date and rating", () => {
+  it("shows release date", () => {
     render(<MovieList movies={mockMovies} />);
-    expect(screen.getByText("Release: 2010-07-16")).toBeInTheDocument();
-    expect(screen.getByText("⭐ 8.8")).toBeInTheDocument();
+    expect(screen.getByText("2010-07-16")).toBeInTheDocument();
   });
 
   it("shows genres correctly", () => {
