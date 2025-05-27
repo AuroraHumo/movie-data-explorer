@@ -7,7 +7,7 @@ import {InfiniteMoviesQuery}  from '../pages/InfiniteMoviesQuery';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ProtectedRoute from '../pages/ProtectedRoute';
-/* import Favorites from '../services/favoritesService'; */
+import FavoritesPage from '../pages/FavoritesPage';
 
 import './App.css'
 import LogOrRegister from '../pages/LogOrRegister';
@@ -24,10 +24,10 @@ export default function App() {
             <ProtectedRoute>
               <InfiniteMoviesQuery />
             </ProtectedRoute> } />
-{/*           <Route path="/favorites" element={
+          <Route path="/favorites" element={
             <ProtectedRoute>
-              <Favorites />
-            </ProtectedRoute> } /> */}
+              <FavoritesPage />
+            </ProtectedRoute> } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logOrRegister" element={<LogOrRegister />} />

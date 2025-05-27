@@ -8,13 +8,20 @@ export interface Favorite {
   added_at: string;
 }
 
-export async function addFavorite(userId: string, movieId: number, movieTitle: string) {
+export async function addFavorite(
+  userId: string, 
+  movieId: number, 
+  movieTitle: string, 
+  favorite: boolean = false, 
+  country_origin: string = '',
+  rate: number = 0
+) {
   const res = await fetch(`${API_URL}/api/favorites`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId, movieId, movieTitle })
+    body: JSON.stringify({ userId, movieId, movieTitle, favorite, country_origin, rate })
   });
-  if (!res.ok) throw new Error('Failed to add favorite');
+  if (!res.ok) throw new Error('Failed to add or update favorite');
   return res.json();
 }
 
