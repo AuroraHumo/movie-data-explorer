@@ -8,6 +8,7 @@ interface Props {
 }
 
 export default function MovieList({ movies }: Props) {
+    
   const [openModal, setOpenModal] = useState(false);
   const [info, setInfo] = useState<MovieInterface | null>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
