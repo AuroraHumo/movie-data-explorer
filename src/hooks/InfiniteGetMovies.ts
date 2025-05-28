@@ -37,7 +37,6 @@ export const InfiniteGetMovies = async ({ pageParam = 1 }) => {
       })
     );
 
-    // Simula un delay (opcional, per veure spinner)
     await delay(1000);
 
     return {

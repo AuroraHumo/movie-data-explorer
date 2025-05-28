@@ -27,7 +27,7 @@ export default function FavoritesPage() {
             <ul className="space-y-2">
                 {favorites.map(fav => (
                     <li key={fav.id} className="p-2 bg-gray-100 rounded">
-                         ❤️ {fav.movie_title} <span className="text-sm text-gray-500">({new Date(fav.added_at).toLocaleDateString()})</span>
+                        ❤️ {fav.movie_title} <span className="text-sm text-gray-500">({new Date(fav.added_at).toLocaleDateString()})</span>
                         - ⭐ My personal rating: {fav.rate}
                         - Country of origin: {fav.country_origin}
                     </li>
