@@ -13,7 +13,7 @@ const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 export const InfiniteGetMovies = async ({ pageParam = 1 }) => {
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${pageParam}`,
+      `https://api.themoviedb.org/3/movie/upcoming?page=${pageParam}`,
       fetchOptions
     );
 
