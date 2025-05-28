@@ -1,40 +1,56 @@
-import type { MouseEvent } from "react";
+import type { MouseEvent, ChangeEvent } from "react";
+import { forwardRef } from "react";
 import type { MovieInterface } from "../interfaces/MovieInterface";
 import { addFavorite } from "../services/favoritesService";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 interface MovieCardProps {
-    movie: MovieInterface;
-    isExpanded: boolean;
-    onToggleExpand: () => void;
-    onSeeCast: (movie: MovieInterface, e: MouseEvent) => void;
+  movie: MovieInterface;
+  isExpanded: boolean;
+  onToggleExpand: () => void;
+  onSeeCast: (movie: MovieInterface, e: MouseEvent) => void;
 }
 
-export default function MovieCard({
-    movie,
-    isExpanded,
-    onToggleExpand,
-    onSeeCast,
-}: MovieCardProps) {
-
+const MovieCard = forwardRef<HTMLDivElement, MovieCardProps>(
+  ({ movie, isExpanded, onToggleExpand, onSeeCast }, ref) => {
     const { user } = useContext(AuthContext);
-    const handleAddFavorite = async (e: MouseEvent) => {
+    const [favorite, setFavorite] = useState(false);
+    const [rate, setRate] = useState<number>(0);
+    const [hasAlerted, setHasAlerted] = useState(false);
+
+    const handleToggleFavorite = async (e: MouseEvent) => {
         e.stopPropagation();
-        if (!user) {
-            alert("You must be logged in to add favorites.");
-            return;
-        }
+        if (!user) return alert("You must be logged in to add favorites.");
         try {
-            await addFavorite(user.uid, movie.id, movie.title);
-            alert("Movie added to favorites!");
+            await addFavorite(user.uid, movie.id, movie.title, !favorite, getCountry(), rate);
+            setFavorite(!favorite)
+            if (!hasAlerted) {
+                alert("Movie added to favorites!");
+                setHasAlerted(true);
+            }
         } catch (error) {
             console.error("Error adding favorite:", error);
             alert("Failed to add movie to favorites.");
         }
     }
+    const handleRateChange = async (e: ChangeEvent<HTMLInputElement>) => {
+        const newRate = parseFloat(e.target.value);
+        setRate(newRate);
+        if (!user) return;
+        try {
+            await addFavorite(user.uid, movie.id, movie.title, favorite, getCountry(), newRate);
+        } catch (err) {
+            console.error(err);
+            alert("Failed to update rating.");
+        }
+    };
+
+    const getCountry = () =>
+        movie.details?.production_countries[0]?.name || "Unknown";
+
     return (
-        <div
+        <div ref={ref} 
             className="relative bg-white border cursor-pointer hover:bg-amber-400 hover:text-black
                  hover:font-semibold transition hover:scale-105 rounded-xl overflow-hidden shadow-md"
             onClick={onToggleExpand}
@@ -48,8 +64,7 @@ export default function MovieCard({
                 <h2 className="font-semibold text-xl m-0">{movie.title.toUpperCase()}</h2>
                 <p className="text-sm text-gray-600"> {movie.release_date}</p>
                 <p className="text-sm text-gray-600">
-                    {movie.original_language.toUpperCase()}
-                    . {movie.details?.production_countries[0]?.name || "N/A"}
+                    {movie.original_language.toUpperCase()}  ·  {getCountry()}
                 </p>
                 <p className="text-sm text-gray-600">
                     {movie.details?.genres.map((g) => g.name).join(", ")}
@@ -64,19 +79,39 @@ export default function MovieCard({
                     <p className="text-sm text-gray-600">⭐ {movie.vote_average.toFixed(1)}</p>
                     <button
                         onClick={(e) => onSeeCast(movie, e)}
-                        className="bg-black text-white px-4 mt-4 py-2 rounded hover:bg-gray-800"
+                        className="bg-black text-white px-4 mt-9 py-2 rounded hover:bg-gray-800"
                     > See Cast
                     </button>
-                    <p>
-                        <button
-                            onClick={handleAddFavorite}
-                            className="bg-black text-white px-4 mt-4 py-2 rounded hover:bg-gray-800"
-                        >
-                            Add as Favorite
-                        </button>
-                    </p>
+                    <div className="grid grid-cols-2 mt-4 items-center text-center justify-center">
+                        <div className="text-center">
+                            <label className="block text-sm text-gray-600 mb-1">Save as Favorite</label>
+                            <button
+                                onClick={handleToggleFavorite}
+                                className="transition hover:scale-110"
+                                aria-label="Toggle Favorite"
+                            >
+                                {favorite ? "❤️" : "🤍"}
+                            </button>
+                        </div>
+                        <div className="text-center">
+                            <label className="block text-sm text-gray-600 mb-1">Rate!</label>
+                            <input
+                                type="number"
+                                step="0.1"
+                                min="0"
+                                max="10"
+                                value={rate}
+                                onChange={handleRateChange}
+                                className="p-2 border rounded w-24 text-center"
+                            />
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
     );
-}
+      }
+);
+MovieCard.displayName = "MovieCard";
+
+    export default MovieCard;
