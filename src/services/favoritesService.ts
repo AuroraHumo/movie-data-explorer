@@ -6,6 +6,8 @@ export interface Favorite {
   movie_id: number;
   movie_title: string;
   added_at: string;
+  rate: number;
+  country_origin: string
 }
 
 export async function addFavorite(
