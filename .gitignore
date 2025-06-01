@@ -13,6 +13,8 @@ dist
 dist-ssr
 *.local
 
+# Variables
+.env
 
 # Editor directories and files
 .vscode/*
@@ -27,6 +29,4 @@ dist-ssr
 
 *storybook.log
 
-# Variables
-.env
-.env.*
+
